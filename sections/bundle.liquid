@@ -1,0 +1,96 @@
+{{ 'bundle.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bundle.js' | asset_url }}" defer></script>
+
+<div class="product-bundle-section">
+  <h2>{{ section.settings.heading }}</h2>
+  <div class="product-grid-wrapper">
+    <div class="product-grid">
+      {% assign collection_handle = section.settings.collection_handle %}
+      {% if collections[collection_handle] %}
+        {% assign products = collections[collection_handle].products %}
+        {% assign total_price = 0 %}
+
+        {% for product in products %}
+          <div class="product-item" id="product-{{ product.id }}">
+            <div class="bundle-product-image">
+              {% if product.featured_image %}
+                <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
+              {% else %}
+                <p>No product image</p>
+              {% endif %}
+            </div>
+            <div class="product-checkbox">
+              <input type="checkbox" id="checkbox-{{ product.id }}" class="product-checkbox-input" checked="checked" data-price="{{ product.price | money }}" data-product-id="{{ product.id }}">
+              <label for="checkbox-{{ product.id }}"></label>
+            </div>
+            <div class="product-details">
+              <h3>{{ product.title }}</h3>
+              <p class="price" id="price-{{ product.id }}">{{ product.price | money }}</p>
+              <select class="product-options">
+                <option value="12-pack-10oz">12 Pack | 10 oz</option>
+                <option value="8-pack-10oz">8 Pack | 10 oz</option>
+              </select>
+            </div>
+          </div>
+          {% assign total_price = total_price | plus: product.price %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="product-mobile-wrapper">
+    <div class="mobile-summary">
+  {% assign products = collections[section.settings.collection_handle].products %}
+  {% for product in products %}
+    <div class="mobile-summary-item">
+      <div class="bundle-product-image">
+        {% if product.featured_image %}
+          {{ product.featured_image | image_url: width: 400 | image_tag: alt: product.title, preload: true }}
+        {% else %}
+          <p>No product image</p>
+        {% endif %}
+      </div>
+      {% unless forloop.last %}
+        <span class="plus">+</span>
+      {% endunless %}
+    </div>
+  {% endfor %}
+</div>
+
+
+    {% for product in collections[section.settings.collection_handle].products %}
+      <div class="mobile-product-row">
+        <input type="checkbox" checked />
+        <span class="bundle-product-title">{{ product.title }}</span>
+        <span class="product-price">{{ product.price | money }}</span>
+      </div>
+    <select class="product-options">
+                <option value="12-pack-10oz">12 Pack | 10 oz</option>
+                <option value="8-pack-10oz">8 Pack | 10 oz</option>
+              </select>
+    {% endfor %}
+  </div>
+
+  <div class="bundle-total-price">
+    <p><strong>Total Price: </strong><span id="total-price">{{ total_price | money }}</span></p>
+    <button class="bundle-add-to-cart">Add to Cart</button>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Product Bundle",
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "label": "Add a heading"
+      },
+      {
+        "type": "collection",
+        "id": "collection_handle",
+        "label": "Select a collection"
+      }
+    ]
+  }
+{% endschema %}

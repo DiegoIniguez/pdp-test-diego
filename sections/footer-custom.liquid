@@ -1,0 +1,117 @@
+{{ 'footer-custom.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'footer-custom.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Custom Footer",
+  "presets": [
+    {
+      "name": "Custom Footer"
+    }
+  ]
+}
+{% endschema %}
+
+<footer class="footer">
+  <div class="sectionBG">
+    <div class="wrapper">
+      <div class="footer__top">
+        <div class="footer__col footer__col--large" style="border:none">
+          <div class="footer__colContent">
+            <span class="footer__label">Let's be pen pals</span>
+            <p class="footer__text">
+              We’ll cut right to the chase – sign up for exclusive access to new products, free stuff and more.
+            </p>
+
+            <form
+              method="post"
+              action="/contact#contact_form"
+              accept-charset="UTF-8"
+              class="newsletterForm"
+              id="contact_form"
+            >
+              <input type="hidden" name="form_type" value="customer">
+              <input type="hidden" name="utf8" value="✓">
+              <div class="form__inputHolder">
+                <input
+                  type="email"
+                  name="contact[email]"
+                  placeholder="Email Address"
+                  class="form__input form__input--hasSubmit"
+                  required
+                >
+                <button type="submit" class="form__inputSubmit">Submit</button>
+              </div>
+              <p class="newsletterForm__response"></p>
+            </form>
+
+            <p class="footer__text">Text us at <strong>580-89</strong></p>
+          </div>
+        </div>
+
+        <div class="footer__nav">
+          <div class="footer__col" data-accordion>
+            <button class="footer__label footer__accordionTrigger" type="button" aria-expanded="false">
+              Shop
+              <span class="footer__icon">+</span>
+            </button>
+            <ul class="footer__items">
+              <li class="footer__item">Cocktails</li>
+              <li class="footer__item">Spritz</li>
+              <li class="footer__item">Sparkling Hard Teas</li>
+              <li class="footer__item">Loverboy VIP</li>
+            </ul>
+          </div>
+
+          <div class="footer__col" data-accordion>
+            <button class="footer__label footer__accordionTrigger" type="button" aria-expanded="false">
+              Company
+              <span class="footer__icon">+</span>
+            </button>
+            <ul class="footer__items">
+              <li class="footer__item">FAQs</li>
+              <li class="footer__item">Careers</li>
+              <li class="footer__item">Return Policy</li>
+              <li class="footer__item">Data Preferences</li>
+              <li class="footer__item">Accessibility</li>
+              <li class="footer__item">Reviews</li>
+            </ul>
+          </div>
+
+          <div class="footer__col" data-accordion>
+            <button class="footer__label footer__accordionTrigger" type="button" aria-expanded="false">
+              Connect
+              <span class="footer__icon">+</span>
+            </button>
+            <ul class="footer__items">
+              <li class="footer__item">Contact</li>
+              <li class="footer__item">Rewards</li>
+              <li class="footer__item">Order Tracking</li>
+              <li class="footer__item">Store Request Form</li>
+              <li class="footer__item">Refer a Friend</li>
+              <li class="footer__item">Ambassador Program</li>
+              <li class="footer__item">Na Teas Wholesale</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        {% if settings.logo %}
+          {{
+            settings.logo
+            | image_url: width: 1500
+            | image_tag: width: null, height: null, class: 'footer__logo', alt: 'Logo'
+          }}
+        {% endif %}
+        <ul class="footer__legalItems">
+          <li class="footer__legalItem">
+            <a href="/pages/privacy-policy" class="footer__legalLink">Privacy Policy</a>
+          </li>
+          <li class="footer__legalItem">
+            <a href="/pages/terms-of-use" class="footer__legalLink">Terms of Service</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,59 @@
+{{ 'product-info.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'product-right-info.js' | asset_url }}" defer></script>
+
+<div class="product-info-wrapper">
+  <div class="product-tagline">COCKTAIL | 12.0% ABV</div>
+  <h1 class="product-title">{{ product.title }}</h1>
+
+  <div class="product-reviews">
+    <span class="stars">★★★★★</span>
+    <span class="review-count">13 Reviews</span>
+  </div>
+
+  <div class="product-price">
+    <span class="original-price">{{ product.compare_at_price | money }}</span>
+    <span class="sale-price">{{ product.price | money }}</span>
+  </div>
+  <p class="product-description">
+    We made this cocktail so you don’t have to! Made with real lime and cranberry juice and sweetened with blue agave,
+    this New York staple is as fresh as it is pink.
+  </p>
+  <div class="purchase-options-group">
+    <div class="product-pack">
+      <select id="pack-select">
+        <option>8 Pack | 8.4 oz</option>
+        <option>12 Pack | 12 oz</option>
+      </select>
+    </div>
+
+    <div class="subscription-box">
+      <label class="subscription-option">
+        <input type="radio" name="purchase_option" checked>
+        One Time: {{ product.price | money }}
+      </label>
+      <label class="subscription-option">
+        <input type="radio" name="purchase_option">
+        Subscribe & Save (15%): ${{ product.price | times: 0.85 | money }}
+      </label>
+
+      <select id="subscription-frequency">
+        <option>1 MONTH</option>
+        <option selected>2 MONTHS</option>
+      </select>
+    </div>
+
+    <div class="qty-and-button">
+      <div class="product-quantity">
+        <button type="button" class="qty-btn minus">−</button>
+        <input type="number" class="qty-input" value="1" min="1">
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+
+      <button type="submit" class="button add-to-cart">ADD TO CART</button>
+    </div>
+
+    <div class="shipping-note">
+      <a href="#">Where we ship?</a>
+    </div>
+  </div>
+</div>

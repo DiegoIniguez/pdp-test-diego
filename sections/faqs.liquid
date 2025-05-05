@@ -1,0 +1,58 @@
+{{ 'faqs.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'faqs.js' | asset_url }}" defer></script>
+
+<section class="faq-section">
+  <h2 class="faq-title">{{ section.settings.heading }}</h2>
+  <div class="faq-container">
+    {% for block in section.blocks %}
+      <div class="faq-item">
+        <button class="faq-question">
+          {{ block.settings.question | upcase }}
+          <span class="faq-toggle-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>{{ block.settings.answer }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ Section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Section heading",
+      "default": "FAQ"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "FAQ Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

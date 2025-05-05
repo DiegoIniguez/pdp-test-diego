@@ -1,0 +1,186 @@
+.product-mobile-wrapper {
+  display: none;
+}
+
+.product-bundle-section {
+  text-align: center;
+  background-color: #fd7ad4;
+  padding: 40px 0;
+}
+
+.product-bundle-section h2 {
+  font-family: "Anton", sans-serif;
+  font-size: 48px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0px 0px 16px 0px;
+  color: white;
+}
+
+.product-grid {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 30px;
+  align-items: flex-end;
+}
+
+.product-item {
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+.product-item.disabled {
+  opacity: 0.5;
+}
+
+.product-checkbox-input:disabled {
+  pointer-events: auto;
+}
+
+.product-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-details h3 {
+  font-size: 24px;
+  font-weight: 500;
+  font-family: "Anton";
+  text-transform: uppercase;
+  color: white;
+  margin: 0px;
+}
+.mobile-summary-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.mobile-summary-item .bundle-product-image {
+  max-width: 80px;
+}
+
+.mobile-summary-item .plus {
+  font-size: 2.4rem;
+  margin-left: 8px;
+  color: white;
+}
+
+.product-details .price {
+  font-size: 16px;
+  color: white;
+  padding: 10px 0px;
+  margin: 0px;
+}
+
+.product-options {
+  background-color: #654aa3;
+  color: white;
+  padding: 10px 50px 10px 15px;
+  font-size: 1rem;
+  width: 100%;
+  border-radius: 16px;
+  border-color: #fff;
+  font-family: "Josefin Sans";
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.product-checkbox {
+  display: flex;
+  justify-content: center;
+  padding-block: 10px;
+}
+.product-checkbox-input:checked {
+  accent-color: #ff0087;
+}
+
+.bundle-total-price {
+  font-family: "Josefin Sans";
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.bundle-add-to-cart {
+  color: #fff;
+  background: #ff0087;
+  border-color: #ff0087;
+  border-width: 1px;
+  border-radius: 16px;
+  padding: 10px 15px;
+  transition: box-shadow 0.33s cubic-bezier(0.55, 0, 0.1, 1);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: "Josefin Sans";
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1130px) {
+  .product-grid-wrapper {
+    display: none !important;
+  }
+
+  .product-mobile-wrapper {
+    display: block;
+    padding: 0 20px;
+  }
+
+  .mobile-summary {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: white;
+  }
+
+  .mobile-summary .plus {
+    font-size: 2.4rem;
+  }
+
+  .mobile-summary .bundle-product-image {
+    max-width: 80px;
+    margin: 8px;
+  }
+
+  .mobile-summary img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .mobile-product-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block: 5px;
+    color: white;
+    background-color: transparent;
+    padding: 0 20px;
+  }
+
+  .mobile-product-row input[type="checkbox"] {
+    accent-color: #ff0087;
+  }
+
+  .bundle-product-title {
+    flex: 1;
+    font-size: 21px;
+    text-align: left;
+    font-family: "Anton";
+    text-transform: uppercase;
+  }
+
+  .product-price {
+    font-weight: bold;
+  }
+}

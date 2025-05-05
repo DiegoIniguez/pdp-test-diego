@@ -1,0 +1,142 @@
+.product-main-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.product-left {
+  flex: 1;
+  min-width: 0;
+  background: var(--petal);
+}
+
+.product-left .product-image img {
+  max-height: 75vh;
+}
+
+.product-information {
+  padding: 72px 96px 72px calc(-630.5px + 50vw);
+  display: flex;
+  gap: 3rem;
+  background: var(--petal);
+  font-size: 16px;
+  color: white;
+}
+
+.productInformation__description h2 {
+  font-family: "Anton", sans-serif;
+  font-size: 48px;
+  color: white;
+}
+
+.productInformation__infoBlock h6 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  margin: 10px 0px;
+}
+
+.product-right {
+  width: 640px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 20px;
+  background: var(--violet);
+  height: 100vh;
+  padding: 40px 40px;
+  color: white;
+}
+.product-title {
+  font-family: "Anton";
+  font-size: 32px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.product-image {
+  text-align: center;
+  background: linear-gradient(
+      180deg,
+      hsla(0, 0%, 100%, 0.3) 0%,
+      hsla(0, 0%, 100%, 0) 80%
+    ),
+    #cb3d7a;
+}
+
+@media (max-width: 768px) {
+  .product-main-container {
+    flex-direction: column;
+  }
+
+  .product-left {
+    display: flex;
+    flex-direction: column;
+    order: 1;
+  }
+
+  .product-right {
+    order: 2;
+    width: 100%;
+    height: auto;
+    position: static;
+    padding: 24px;
+    background-color: var(--violet);
+  }
+
+  .product-image {
+    order: 1;
+  }
+
+  .product-information {
+    order: 3;
+    flex-direction: column;
+    padding: 0px;
+  }
+
+  .additional-left-section {
+    order: 4;
+  }
+  .product-page-waveBottom {
+    display: none;
+  }
+
+  .product-page-waveBottom-two {
+    display: block;
+  }
+
+  .productInformation__description,
+  .productInformation__additionalInfo {
+    padding: 0px 20px;
+  }
+}
+
+.desktop-only {
+  display: block;
+}
+.mobile-only {
+  display: none;
+}
+
+@media only screen and (max-width: 1300px) and (min-width: 769px) {
+  .product-right {
+    max-width: 400px;
+  }
+  .product-information {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: block;
+  }
+  .product-left .product-image img {
+    max-width: 100%;
+  }
+}
