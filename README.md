@@ -49,3 +49,11 @@ Example:
 
 ```liquid
 {{ product.featured_image | image_url: width: 385 | image_tag }}
+```
+
+## 📝 Note from the Developer
+
+I completed this project while celebrating my birthday 🥳 — so while I focused on meeting all mandatory and several optional requirements, there’s more I would have loved to polish (like deeper animation layers and accessibility refinements).
+
+Thanks for understanding — I’ll be happy to discuss what I’d improve with more time!
+
