@@ -1,6 +1,6 @@
 # PDP Test – Diego Iñiguez
 
-This project is my submission for the Frontend Developer Technical Test. It replicates a **Product Detail Page (PDP)** inspired by the [Loverboy product example]([https://drinkloverboy.com/products/](https://drinkloverboy.com/products/cosmopolitan) using **Dawn Shopify theme** to save time and focus on custom implementation.
+This project is my submission for the Frontend Developer Technical Test. It replicates a **Product Detail Page (PDP)** inspired by the **Loverboy product example** using **Dawn Shopify theme** to save time and focus on custom implementation.
 You can visit the PDP directly in:
 🔗 **Live Preview**: [pdp-test-diego.myshopify.com/products/cosmopolitan](https://pdp-test-diego.myshopify.com/products/cosmopolitan)  
 🔒 **Password**: `testDiego`
